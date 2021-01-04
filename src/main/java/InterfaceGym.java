@@ -1,6 +1,56 @@
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class InterfaceGym {
+    public void writeToFile() {
+
+        File file = new File("hashmap.txt");
+
+        BufferedWriter bf = null;
+        ;
+
+        try {
+
+            //create new BufferedWriter for the output file
+            bf = new BufferedWriter(new FileWriter(file));
+
+            //iterate map entries
+            for (Map.Entry<String, Boolean> entry : choosePlace.entrySet()) {
+
+                //put key and value separated by a colon
+                bf.write(entry.getKey() + ":" + entry.getValue());
+
+                //new line
+                bf.newLine();
+            }
+
+            bf.flush();
+
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        } finally {
+
+            try {
+                //always close the writer
+                bf.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void getChoosePlace(String activity, Boolean place) {
+        choosePlace.replace(activity, place);
+    }
+
+    public HashMap<String, Boolean> getReturnHashMap() {
+        return choosePlace;
+    }
 
 
     public static void main(String[] args) {
