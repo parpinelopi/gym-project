@@ -52,7 +52,6 @@ public class InterfaceGym {
         return choosePlace;
     }
 
-
     public static void main(String[] args) {
         String menuInput;
         BecomeMember beMember;
@@ -62,10 +61,6 @@ public class InterfaceGym {
         BookActivity activity;
         activity = new BookActivity();
         Scanner menu = new Scanner(System.in);
-
-//add positions for each activity in the hashmap
-        //System.out.println(choosePlace);
-        //System.out.println("is empty? " + choosePlace.isEmpty());
 
 
         System.out.println("\n");
