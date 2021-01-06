@@ -7,6 +7,35 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class InterfaceGym {
+    HashMap<String, Boolean> choosePlace = new HashMap<>() {{
+        put("Aero1a", true);
+        put("Aero1b", true);
+        put("Aero1c", true);
+        put("Aero2a", true);
+        put("Aero2b", true);
+        put("Aero2c", true);
+        put("Aero3a", true);
+        put("Aero3b", true);
+        put("Aero3c", true);
+        put("Spin1a", true);
+        put("Spin1b", true);
+        put("Spin1c", true);
+        put("Spin2a", true);
+        put("Spin2b", true);
+        put("Spin2c", true);
+        put("Spin3a", true);
+        put("Spin3b", true);
+        put("Spin3c", true);
+        put("Yoga1a", true);
+        put("Yoga1b", true);
+        put("Yoga1c", true);
+        put("Yoga2a", true);
+        put("Yoga2b", true);
+        put("Yoga2c", true);
+        put("Yoga3a", true);
+        put("Yoga3b", true);
+        put("Yoga3c", true);
+    }};
     public void writeToFile() {
 
         File file = new File("hashmap.txt");
