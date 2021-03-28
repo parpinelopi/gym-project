@@ -1,5 +1,10 @@
+import java.io.*;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.regex.Pattern;
+import java.io.File;
+import java.io.BufferedWriter;
+import java.io.BufferedReader;
 
 /**
  * Class Login stores the functionality for the user's login,
@@ -14,11 +19,16 @@ import java.util.regex.Pattern;
 //3. Om man adderar kontrollsiffran till denna summa ska man få ett tal jämnt delbart med 10.
 
 public class LogIn {
+    String persNr;
+    String userToken;
+    String nameUser;
 
-    public void logUser() {
-        System.out.println("Enter personal number in this format YYMMDD-XX :");
+    public void logUser() throws IOException {
+        System.out.println("Enter personal number in this format YYMMDD-XXXX :");
         Scanner scanner = new Scanner(System.in);
-        String persNr = scanner.nextLine();
+        persNr = scanner.nextLine();
+        //trying to check if name of user will be stored
+        nameUser=scanner.nextLine();
         System.out.println(persNr);
         boolean matchPattern = Pattern.matches("\\d\\d\\d\\d\\d\\d-\\d\\d\\d\\d", persNr);
 
@@ -56,6 +66,7 @@ public class LogIn {
             System.out.println(sum);
             if ((sum + persnrArray[persnrArray.length - 1]) % 10 == 0) {
                 System.out.println("Personal number is valid, you have successfully logged in");
+                createUserToken();
             } else {
                 System.out.println("The personal number is invalid, try once more");
 
@@ -66,7 +77,59 @@ public class LogIn {
 
 
     }
+    //TEST -Try to create user token
+
+    public void createUserToken() {
 
 
+        BufferedWriter token = null;
+
+        try {
+            userToken = persNr;
+            //Specify the file name and path here
+            File userFile = new File("user.txt");
+
+            /* This logic will make sure that the file
+             * gets created if it is not present at the
+             * specified location*/
+            if (!userFile.exists()) {
+                userFile.createNewFile();
+            }
+
+            FileWriter tokenWriter = new FileWriter(userFile);
+            token = new BufferedWriter(tokenWriter);
+            token.write(nameUser+"-"+userToken);
+            System.out.println("File written Successfully");
+
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        } finally {
+
+            {
+                try {
+                    if (token != null)
+                        token.close();
+                } catch (Exception ex) {
+                    System.out.println("Error in closing the BufferedWriter" + ex);
+                }
+
+            }
+
+
+        }
+    }
+
+  /* public void checkLogin() throws IOException {
+        //check if file user.txt is empty
+       BufferedReader loginExists = new BufferedReader(new FileReader("user.txt"));
+       if (loginExists.readLine() != null) {
+           System.out.println("You need to login first");
+       }
+       else {
+
+            System.out.println(nameUser + "make your choices");
+        }
+
+    }*/
 }
 

@@ -1,3 +1,7 @@
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class BookActivity {
@@ -76,7 +80,7 @@ public class BookActivity {
         } else {
             System.out.println("This seat is not available try booking another one");
         }
-
+        System.out.println(interGym.getReturnHashMap());
         interGym.writeToFile();
     }
 
@@ -111,84 +115,104 @@ public class BookActivity {
         } else {
             System.out.println("This seat is not available try booking another one");
         }
+        System.out.println(interGym.getReturnHashMap());
         interGym.writeToFile();
     }
 
 
-    public void chooseInterface() {
+    public void chooseInterface() throws IOException {
         //interGym.readFromFile();
-        Scanner activitymenu = new Scanner(System.in);
-        System.out.println("Choose one of the following activities: ");
-        System.out.println("\n");
-        System.out.println("1. Aerobics");
-        System.out.println("2. Spinning");
-        System.out.println("3. Yoga");
-        System.out.println("\n");
-        activityInput = activitymenu.nextLine();
+        BufferedReader loginExists = new BufferedReader(new FileReader("user.txt"));
+        if (loginExists.readLine() != null) {
+            Scanner activitymenu = new Scanner(System.in);
+            System.out.println("Choose one of the following activities: ");
+            System.out.println("\n");
+            System.out.println("1. Aerobics");
+            System.out.println("2. Spinning");
+            System.out.println("3. Yoga");
+            System.out.println("\n");
+            activityInput = activitymenu.nextLine();
 
-        switch (activityInput) {
-            case "1" -> {
-                Scanner positionAero = new Scanner(System.in);
-                System.out.println("Choose one of the following spaces: ");
-                System.out.println("\n");
-                System.out.println("1a");
-                System.out.println("1b");
-                System.out.println("1c");
-                System.out.println("2a");
-                System.out.println("2b");
-                System.out.println("2c");
-                System.out.println("3a");
-                System.out.println("3b");
-                System.out.println("3c");
-                System.out.println("\n");
-                activityPositionAero = "Aero" + positionAero.next();
-                positionAero.close();
-                System.out.println(activityPositionAero);
-                aerobicsPosition();
+
+            try {
+                switch (activityInput) {
+                    case "1" -> {
+                        Scanner position = new Scanner(System.in);
+                        System.out.println("Choose one of the following spaces: ");
+                        System.out.println("\n");
+                        System.out.println("1a");
+                        System.out.println("1b");
+                        System.out.println("1c");
+                        System.out.println("2a");
+                        System.out.println("2b");
+                        System.out.println("2c");
+                        System.out.println("3a");
+                        System.out.println("3b");
+                        System.out.println("3c");
+                        System.out.println("\n");
+                        activityPositionAero = "Aero" + position.next();
+                        aerobicsPosition();
+                        //position.close();
+                        System.out.println(activityPositionAero);
+                        //aerobicsPosition();
+                        break;
+                    }
+                    case "2" -> {
+                        Scanner position = new Scanner(System.in);
+                        System.out.println("Choose one of the following spaces: ");
+                        System.out.println("\n");
+                        System.out.println("1a");
+                        System.out.println("1b");
+                        System.out.println("1c");
+                        System.out.println("2a");
+                        System.out.println("2b");
+                        System.out.println("2c");
+                        System.out.println("3a");
+                        System.out.println("3b");
+                        System.out.println("3c");
+                        System.out.println("\n");
+                        activityPositionSpin = "Spin" + position.next();
+                        spinningPosition();
+                        //position.close();
+                        System.out.println(activityPositionSpin);
+                        //spinningPosition();
+                        break;
+                    }
+                    case "3" -> {
+                        Scanner position = new Scanner(System.in);
+                        System.out.println("Choose one of the following spaces: ");
+                        System.out.println("\n");
+                        System.out.println("1a");
+                        System.out.println("1b");
+                        System.out.println("1c");
+                        System.out.println("2a");
+                        System.out.println("2b");
+                        System.out.println("2c");
+                        System.out.println("3a");
+                        System.out.println("3b");
+                        System.out.println("3c");
+                        System.out.println("\n");
+                        activityPositionYoga = "Yoga" + position.next();
+                        yogaPosition();
+                        //position.close();
+                        System.out.println(activityPositionYoga);
+                        //yogaPosition();
+                        break;
+                    }
+                    default -> throw new IllegalStateException("Unexpected value: " + activityInput);
+
+                }
+            } catch (IllegalStateException e) {
+                e.printStackTrace();
             }
-            case "2" -> {
-                Scanner positionSpin = new Scanner(System.in);
-                System.out.println("Choose one of the following spaces: ");
-                System.out.println("\n");
-                System.out.println("1a");
-                System.out.println("1b");
-                System.out.println("1c");
-                System.out.println("2a");
-                System.out.println("2b");
-                System.out.println("2c");
-                System.out.println("3a");
-                System.out.println("3b");
-                System.out.println("3c");
-                System.out.println("\n");
-                activityPositionSpin = "Spin" + positionSpin.next();
-                positionSpin.close();
-                System.out.println(activityPositionSpin);
-                spinningPosition();
-            }
-            case "3" -> {
-                Scanner positionYoga = new Scanner(System.in);
-                System.out.println("Choose one of the following spaces: ");
-                System.out.println("\n");
-                System.out.println("1a");
-                System.out.println("1b");
-                System.out.println("1c");
-                System.out.println("2a");
-                System.out.println("2b");
-                System.out.println("2c");
-                System.out.println("3a");
-                System.out.println("3b");
-                System.out.println("3c");
-                System.out.println("\n");
-                activityPositionYoga = "Yoga" + positionYoga.next();
-                positionYoga.close();
-                System.out.println(activityPositionYoga);
-                yogaPosition();
-            }
-            default -> throw new IllegalStateException("Unexpected value: " + activityInput);
+        } else {
+            LogIn login;
+            login = new LogIn();
+            System.out.println("Please, login first!");
+            login.logUser();
+
         }
-
     }
-
 }
 
 

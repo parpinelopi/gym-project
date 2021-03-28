@@ -1,3 +1,6 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Scanner;
 
 /**
@@ -15,29 +18,45 @@ public class BecomeMember {
     int months;
 
 
-    //calculate total membership cost
-    public void calculateCost() {
-        Scanner enterMonths = new Scanner(System.in);  // Create a Scanner object
-        System.out.println("How many months will you become a member for? ");
 
-        months = enterMonths.nextInt();
-        enterMonths.close();
-        if (months >= 1 && months <= 2) {
-            totalCost = membership + durationA;
-            System.out.println("You have chosen membership between 1-2 months, this will cost " + totalCost);
+
+    //calculate total membership cost
+    public void calculateCost() throws IOException {
+
+        BufferedReader loginExists = new BufferedReader(new FileReader("user.txt"));
+
+        if (loginExists.readLine() != null) {
+            Scanner enterMonths = new Scanner(System.in);  // Create a Scanner object
+            System.out.println("How many months will you become a member for? ");
+
+            months = enterMonths.nextInt();
+            enterMonths.close();
+            if (months >= 1 && months <= 2) {
+                totalCost = membership + durationA;
+                System.out.println("You have chosen membership between 1-2 months, this will cost " + totalCost);
+            }
+            // if statements for choosing membership according to months and cost calculation
+            else if (months >= 3 && months <= 6) {
+                totalCost = membership + durationB;
+                System.out.println("You have chosen membership between 3-6 months, this will cost " + totalCost);
+            } else if (months >= 7 && months <= 12) {
+                totalCost = membership + durationC;
+                System.out.println("You have chosen membership between 7-12 months, this will cost " + totalCost);
+            } else if (12 < months && months < 36) {
+                totalCost = membership + durationD;
+                System.out.println("You have chosen membership for over 12 months, this will cost " + totalCost);
+            } else
+                System.out.println("The number of months is invalid, please try again");
         }
-        // if statements for choosing membership according to months and cost calculation
-        else if (months >= 3 && months <= 6) {
-            totalCost = membership + durationB;
-            System.out.println("You have chosen membership between 3-6 months, this will cost " + totalCost);
-        } else if (months >= 7 && months <= 12) {
-            totalCost = membership + durationC;
-            System.out.println("You have chosen membership between 7-12 months, this will cost " + totalCost);
-        } else if (12 < months && months < 36) {
-            totalCost = membership + durationD;
-            System.out.println("You have chosen membership for over 12 months, this will cost " + totalCost);
-        } else
-            System.out.println("The number of months is invalid, please try again");
+        else{
+            LogIn login;
+            login = new LogIn();
+            System.out.println("Please, login first!");
+            login.logUser();
+        }
+
+        //method for checking if user is logged in
+
     }
 }
 
