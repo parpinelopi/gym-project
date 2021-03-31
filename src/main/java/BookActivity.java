@@ -14,22 +14,22 @@ public class BookActivity {
     }
 
     public void Position() {
-        if (activityPosition.contains("Aero1a")) {
+        if (activityPosition.equals("Aero1a")) {
             interGym.getChoosePlace("Aero1a", false);
             System.out.println("The place 1a has been booked");
-        } else if (activityPosition.contains("Aero1b")) {
+        } else if (activityPosition.equals("Aero1b")) {
             interGym.getChoosePlace("Aero1b", false);
             System.out.println("The place 1b has been booked");
-        } else if (activityPosition.contains("Aero1c")) {
+        } else if (activityPosition.equals("Aero1c")) {
             interGym.getChoosePlace("Aero1c", false);
             System.out.println("The place 1c has been booked");
-        } else if (activityPosition.contains("Aero2a")) {
+        } else if (activityPosition.equals("Aero2a")) {
             interGym.getChoosePlace("Aero2a", false);
             System.out.println("The place 2a has been booked");
-        } else if (activityPosition.contains("Aero2b")) {
+        } else if (activityPosition.equals("Aero2b")) {
             interGym.getChoosePlace("Aero2b", false);
             System.out.println("The place 2b has been booked");
-        } else if (activityPosition.contains("Aero2c")) {
+        } else if (activityPosition.equals("Aero2c")) {
             interGym.getChoosePlace("Aero2c", false);
             System.out.println("The place 2c has been booked");
         } else if (activityPosition.equals("Aero3a")) {
@@ -41,31 +41,31 @@ public class BookActivity {
         } else if (activityPosition.equals("Aero3c")) {
             interGym.getChoosePlace("Aero3c", false);
             System.out.println("The place 3c has been booked");
-        } else if (activityPosition.contains("Spin1a")) {
+        } else if (activityPosition.equals("Spin1a")) {
             interGym.getChoosePlace("Spin1a", false);
             System.out.println("The place 1a has been booked");
-        } else if (activityPosition.contains("Spin1b")) {
+        } else if (activityPosition.equals("Spin1b")) {
             interGym.getChoosePlace("Spin1b", false);
             System.out.println("The place 1b has been booked");
-        } else if (activityPosition.contains("Spin1c")) {
+        } else if (activityPosition.equals("Spin1c")) {
             interGym.getChoosePlace("Spin1c", false);
             System.out.println("The place 1c has been booked");
-        } else if (activityPosition.contains("Spin2a")) {
+        } else if (activityPosition.equals("Spin2a")) {
             interGym.getChoosePlace("Spin2a", false);
             System.out.println("The place 2a has been booked");
-        } else if (activityPosition.contains("Spin2b")) {
+        } else if (activityPosition.equals("Spin2b")) {
             interGym.getChoosePlace("Spin2b", false);
             System.out.println("The place 2b has been booked");
-        } else if (activityPosition.contains("Spin2c")) {
+        } else if (activityPosition.equals("Spin2c")) {
             interGym.getChoosePlace("Spin2c", false);
             System.out.println("The place 2c has been booked");
-        } else if (activityPosition.contains("Spin3a")) {
+        } else if (activityPosition.equals("Spin3a")) {
             interGym.getChoosePlace("Spin3a", false);
             System.out.println("The place 3a has been booked");
-        } else if (activityPosition.contains("Spin3b")) {
+        } else if (activityPosition.equals("Spin3b")) {
             interGym.getChoosePlace("Spin3b", false);
             System.out.println("The place 3b has been booked");
-        } else if (activityPosition.contains("Spin3c")) {
+        } else if (activityPosition.equals("Spin3c")) {
             interGym.getChoosePlace("Spin3c", false);
             System.out.println("The place 3c has been booked");
         } else if (activityPosition.equals("Yoga1a")) {
@@ -98,7 +98,7 @@ public class BookActivity {
         } else {
             System.out.println("This seat is not available try booking another one");
         }
-        //System.out.println(interGym.getReturnHashMap());
+        System.out.println(interGym.getReturnHashMap());
         interGym.writeToFile();
     }
 
@@ -138,8 +138,6 @@ public class BookActivity {
                         Position();
                         //position.close();
                         System.out.println(activityPosition);
-                        //aerobicsPosition();
-                        //break;
                     }
                     case "2" -> {
                         //Scanner position = new Scanner(System.in);
@@ -160,8 +158,6 @@ public class BookActivity {
                         Position();
                         //position.close();
                         System.out.println(activityPosition);
-                        //spinningPosition();
-                        //break;
                     }
                     case "3" -> {
                         //Scanner position = new Scanner(System.in);
@@ -182,7 +178,6 @@ public class BookActivity {
                         Position();
                         //position.close();
                         System.out.println(activityPosition);
-                        //yogaPosition();
                     }
                     default -> throw new IllegalStateException("Unexpected value: " + activityInput);
 

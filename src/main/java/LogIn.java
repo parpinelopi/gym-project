@@ -1,10 +1,8 @@
 import java.io.*;
-import java.util.Map;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 import java.io.File;
 import java.io.BufferedWriter;
-import java.io.BufferedReader;
 
 /**
  * Class Login stores the functionality for the user's login,
@@ -23,18 +21,19 @@ public class LogIn {
     String userToken;
     String nameUser;
 
-    public void logUser() throws IOException {
+    public void logUser(){
         System.out.println("Enter personal number in this format YYMMDD-XXXX :");
         Scanner scanner = new Scanner(System.in);
         persNr = scanner.nextLine();
         //trying to check if name of user will be stored
+        System.out.println("Enter your name:");
         nameUser = scanner.nextLine();
         System.out.println(persNr);
         boolean matchPattern = Pattern.matches("\\d\\d\\d\\d\\d\\d-\\d\\d\\d\\d", persNr);
 
         scanner.close();
         if (matchPattern) {
-            System.out.println("Personal number format is correct");
+          //  System.out.println("Personal number format is correct");
 
             //Parse scanner input in array
             persNr = persNr.replaceAll("[^a-zA-Z0-9]", "");
@@ -51,15 +50,15 @@ public class LogIn {
                 if (i % 2 == 0) {
                     j = j * 2;
                 }
-                int next = 0;
+               // int next = 0;
                 if (j > 9) {
                     int small = j % 10;
                     int big = j / 10;
                     sum += small + big;
-                    next = small + big;
+                   // next = small + big;
                 } else {
                     sum += j;
-                    next = j;
+                  //  next = j;
                 }
 
             }
@@ -99,7 +98,7 @@ public class LogIn {
             FileWriter tokenWriter = new FileWriter(userFile);
             token = new BufferedWriter(tokenWriter);
             token.write(nameUser + "-" + userToken);
-            System.out.println("File written Successfully");
+            System.out.println("User token has been created successfully");
 
         } catch (IOException ioe) {
             ioe.printStackTrace();
@@ -118,6 +117,8 @@ public class LogIn {
 
         }
     }
+
+
 
 }
 

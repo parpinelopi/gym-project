@@ -23,7 +23,7 @@ public class InterfaceGym {
             // create BufferedReader object from the File
             readFile = new BufferedReader(new FileReader(file));
 
-            String line = null;
+            String line ;
 
             // read file line by line
             while ((line = readFile.readLine()) != null) {
@@ -48,6 +48,7 @@ public class InterfaceGym {
                 try {
                     readFile.close();
                 } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
         }
@@ -85,7 +86,7 @@ public class InterfaceGym {
 
             try {
                 //close the writer
-                bf.close();
+               bf.close();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -109,6 +110,8 @@ public class InterfaceGym {
         beMember = new BecomeMember();
         LogIn login;
         login = new LogIn();
+        Logout logout;
+        logout= new Logout();
         //create interface constructor
         InterfaceGym gym = new InterfaceGym(map);
         BookActivity activity;
@@ -148,6 +151,7 @@ public class InterfaceGym {
             case "4":
                 menu.close();
                 System.out.println("Thank you for using Gym WakeUp. See you next time.");
+                logout.Logout();
                 return;
             default:
                 System.out.println("You have entered invalid choice. Please try again");
