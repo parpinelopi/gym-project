@@ -10,7 +10,11 @@ public class BookActivity {
     String activityPositionAero;
     String activityPositionSpin;
     String activityPositionYoga;
-    InterfaceGym interGym = new InterfaceGym();
+    InterfaceGym interGym;
+
+    public BookActivity(InterfaceGym gym) {
+        interGym = gym;
+    }
 
     public void aerobicsPosition() {
         if (activityPositionAero.equals("Aero1a")) {
@@ -121,8 +125,8 @@ public class BookActivity {
 
 
     public void chooseInterface() throws IOException {
-        //interGym.readFromFile();
         BufferedReader loginExists = new BufferedReader(new FileReader("user.txt"));
+        // the if bellow checks if there is any input in the user file at the time the user tries to choose an activity
         if (loginExists.readLine() != null) {
             Scanner activitymenu = new Scanner(System.in);
             System.out.println("Choose one of the following activities: ");

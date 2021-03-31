@@ -28,7 +28,7 @@ public class LogIn {
         Scanner scanner = new Scanner(System.in);
         persNr = scanner.nextLine();
         //trying to check if name of user will be stored
-        nameUser=scanner.nextLine();
+        nameUser = scanner.nextLine();
         System.out.println(persNr);
         boolean matchPattern = Pattern.matches("\\d\\d\\d\\d\\d\\d-\\d\\d\\d\\d", persNr);
 
@@ -77,7 +77,7 @@ public class LogIn {
 
 
     }
-    //TEST -Try to create user token
+    //create user token will save the personal number and the name of the user as a string
 
     public void createUserToken() {
 
@@ -98,7 +98,7 @@ public class LogIn {
 
             FileWriter tokenWriter = new FileWriter(userFile);
             token = new BufferedWriter(tokenWriter);
-            token.write(nameUser+"-"+userToken);
+            token.write(nameUser + "-" + userToken);
             System.out.println("File written Successfully");
 
         } catch (IOException ioe) {
@@ -119,17 +119,5 @@ public class LogIn {
         }
     }
 
-  /* public void checkLogin() throws IOException {
-        //check if file user.txt is empty
-       BufferedReader loginExists = new BufferedReader(new FileReader("user.txt"));
-       if (loginExists.readLine() != null) {
-           System.out.println("You need to login first");
-       }
-       else {
-
-            System.out.println(nameUser + "make your choices");
-        }
-
-    }*/
 }
 

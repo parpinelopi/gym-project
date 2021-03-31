@@ -20,8 +20,8 @@ Spin2c:true
 Spin2b:true
 Yoga3b:true
 Yoga3a:true
-Aero1c:true
-Aero1b:true
+Aero1c:false
+Aero1b:false
 Aero1a:false
 Aero3c:true
 Aero3b:true
