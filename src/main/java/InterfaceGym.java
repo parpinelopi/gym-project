@@ -49,7 +49,6 @@ public class InterfaceGym {
                     readFile.close();
                 } catch (Exception e) {
                 }
-                ;
             }
         }
 
@@ -78,7 +77,7 @@ public class InterfaceGym {
                 bf.newLine();
             }
 
-            bf.flush();
+           bf.flush();
 
         } catch (IOException ioe) {
             ioe.printStackTrace();
@@ -97,11 +96,12 @@ public class InterfaceGym {
         choosePlace.replace(activity, place);
     }
 
-    public HashMap<String, Boolean> getReturnHashMap() {
+    public  HashMap<String, Boolean> getReturnHashMap() {
         return choosePlace;
     }
 
     public static void start() throws IOException {
+
         //create hashmap 'map' which will store the hashmap read from the file hashmap.txt
         HashMap<String, Boolean> map = HashMapFromTextFile();
         String menuInput;
