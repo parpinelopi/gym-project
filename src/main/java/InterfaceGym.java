@@ -94,10 +94,12 @@ public class InterfaceGym {
     }
 
     public void getChoosePlace(String activity, Boolean place) {
+
         choosePlace.replace(activity, place);
     }
 
     public  HashMap<String, Boolean> getReturnHashMap() {
+
         return choosePlace;
     }
 

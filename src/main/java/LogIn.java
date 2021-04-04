@@ -55,23 +55,23 @@ public class LogIn {
                     int small = j % 10;
                     int big = j / 10;
                     sum += small + big;
-                   // next = small + big;
                 } else {
                     sum += j;
-                  //  next = j;
+
                 }
 
             }
-            System.out.println(sum);
+
             if ((sum + persnrArray[persnrArray.length - 1]) % 10 == 0) {
-                System.out.println("Personal number is valid, you have successfully logged in");
+                System.out.println("Personal number is valid, you have successfully logged in.");
                 createUserToken();
             } else {
-                System.out.println("The personal number is invalid, try once more");
+                System.out.println("The personal number is invalid, try once more.");
 
             }
         } else {
-            System.out.println("The personal number has incorrect format, please try again");
+            System.out.println("The personal number has incorrect format, please try again."
+            );
         }
 
 

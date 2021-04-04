@@ -54,9 +54,6 @@ public class BecomeMember {
             System.out.println("Please, login first!");
             login.logUser();
         }
-
-        //method for checking if user is logged in
-
     }
 }
 

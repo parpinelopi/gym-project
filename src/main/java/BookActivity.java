@@ -120,7 +120,6 @@ public class BookActivity {
             try {
                 switch (activityInput) {
                     case "1" -> {
-                        //Scanner position = new Scanner(System.in);
                         System.out.println("Choose one of the following spaces: ");
                         System.out.println("\n");
                         System.out.println("1a");
@@ -136,11 +135,9 @@ public class BookActivity {
                         Scanner position = new Scanner(System.in);
                         activityPosition = "Aero" + position.next();
                         Position();
-                        //position.close();
                         System.out.println(activityPosition);
                     }
                     case "2" -> {
-                        //Scanner position = new Scanner(System.in);
                         System.out.println("Choose one of the following spaces: ");
                         System.out.println("\n");
                         System.out.println("1a");
@@ -156,11 +153,9 @@ public class BookActivity {
                         Scanner position = new Scanner(System.in);
                         activityPosition = "Spin" + position.next();
                         Position();
-                        //position.close();
                         System.out.println(activityPosition);
                     }
                     case "3" -> {
-                        //Scanner position = new Scanner(System.in);
                         System.out.println("Choose one of the following spaces: ");
                         System.out.println("\n");
                         System.out.println("1a");
@@ -176,7 +171,6 @@ public class BookActivity {
                         Scanner position = new Scanner(System.in);
                         activityPosition = "Yoga" + position.next();
                         Position();
-                        //position.close();
                         System.out.println(activityPosition);
                     }
                     default -> throw new IllegalStateException("Unexpected value: " + activityInput);
@@ -193,6 +187,7 @@ public class BookActivity {
 
         }
     }
+
 }
 
 
